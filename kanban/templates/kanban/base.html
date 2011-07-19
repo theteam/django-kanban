@@ -1,0 +1,42 @@
+{% load adminmedia %}
+<!DOCTYPE html>
+<!--[if lte IE 8 ]><html lang="en" class="no-js ie-lte-8"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<html lang="en">
+<head>
+    {% block meta %}
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    {% endblock %}
+	
+	<title>{% block title %}Scout{% endblock %}</title>
+	
+    <link rel="stylesheet" href="{{ STATIC_URL }}scout/styles/base.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+
+	<script>document.documentElement.className += ' js'</script>
+</head>
+<body class="{% block html_classes %}{% endblock %}">
+	{% block body_content %}
+
+        {# Include your own masthead by overriding this template #}
+        {% include "scout/branding.html" %}
+
+		<div class="page">
+			<div class="article">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+		
+	{% endblock %}
+	{% block body_script %}
+        {% comment %}
+        <!-- We're using the jquery that ships with django.contrib.admin and
+             therefore to load the adminmedia templatetags, the admin app
+             is a requirement and must be included in INSTALLED_APPS -->
+        {% endcomment %}
+        <script type="text/javascript" src="{% admin_media_prefix %}js/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}scout/scripts/base.js" /></script>
+	{% endblock %}
+</body>
+</html>
