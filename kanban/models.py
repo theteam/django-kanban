@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 
 ###
@@ -34,17 +35,24 @@ class Category(models.Model):
     whether that be by client, location, whatever.
     """
     title = models.CharField(_('title'), max_length=100, unique=True)
-    slug = models.SlugField(_('slug'), max_length=100, unique=True)
+    slug = models.SlugField(_('slug'), max_length=100, unique=True, 
+                            editable=False)
 
     class Meta:
         ordering = ['title']
+        verbose_name_plural = 'categories'
 
     def __unicode__(self):
         return self.title
 
     @models.permalink
     def get_absolute_url(self):
-        return ('kanban_category', [self.slug])
+        return ('kanban_board_list', [self.slug])
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Category, self).save(*args, **kwargs)
 
 
 class Board(TimestampModel, ActiveModel):
@@ -57,7 +65,8 @@ class Board(TimestampModel, ActiveModel):
     category = models.ForeignKey('kanban.Category', verbose_name=_('category'),
                                 related_name='boards')
     title = models.CharField(_('title'), max_length=100, unique=True)
-    slug = models.SlugField(_('slug'), max_length=100, unique=True)
+    slug = models.SlugField(_('slug'), max_length=100, unique=True, 
+                            editable=False)
     tagline = models.CharField(_('tagline'), max_length=255, blank=True)
     description = models.TextField(_('description'), blank=True)
 
@@ -69,7 +78,12 @@ class Board(TimestampModel, ActiveModel):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('kanban_board', [self.category.slug, self.slug])
+        return ('kanban_board_detail', [self.slug])
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Board, self).save(*args, **kwargs)
 
 
 class State(models.Model):
@@ -91,12 +105,24 @@ class State(models.Model):
     def __unicode__(self):
         return self.title
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(State, self).save(*args, **kwargs)
+
+
 class Card(models.Model):
     """Represents a 'kanban card', kanban cards sit
     in a given state on a given board and model a single task.
     """
     state = models.ForeignKey('kanban.State', verbose_name=_('state'), 
                               related_name='cards')
-    title = models.CharField(_('title'), max_length=100, unique=True)
-    slug = models.SlugField(_('slug'), max_length=100, unique=True)
+    order = models.PositiveIntegerField(_('order'))
+    summary = models.CharField(_('title'), max_length=255)
     description = models.TextField(_('description'), blank=True)
+
+    class Meta:
+        order = ['order']
+
+    def __unicode__(self):
+        return self.title
