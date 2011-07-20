@@ -1,4 +1,9 @@
 # Django settings for example_project project.
+import os
+
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))                                                                                                                  
+# settings is one directory up now                                             
+here = lambda *x: os.path.join(PROJECT_ROOT, '..', *x)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -85,7 +90,6 @@ SECRET_KEY = 'm%umc^dbw3e8^53tiefqf+v9-oew1$wrr&47venprog8hqpxkt'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,6 +106,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    here('templates'),
 )
 
 INSTALLED_APPS = (

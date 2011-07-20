@@ -6,7 +6,9 @@ from django.conf import settings
 
 DEFAULT_BOARD_LAYOUTS = {
     'Development': ['Backlog', 'Todo', 'Doing', 'Done', 'Accepted', 'Live'],
-    'Project Pipeline': ['Discover', 'Define', 'Design', 'Deliver', 'Deployed', 'Hold', 'Bin'],
+    'Project Pipeline': ['Discover', 'Define', 'Design', 'Deliver', 
+                         'Deployed', 'Hold', 'Bin'],
 }
 
-BOARD_LAYOUTS = settings.get('KANBAN_BOARD_LAYOUTS', DEFAULT_BOARD_LAYOUTS)
+BOARD_LAYOUTS = getattr(settings, 'KANBAN_BOARD_LAYOUTS', 
+                        DEFAULT_BOARD_LAYOUTS)

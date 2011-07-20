@@ -3,12 +3,10 @@ from django import forms
 from kanban.models import Board, Category
 from kanban.settings import BOARD_LAYOUTS
 
-
-LAYOUT_CHOICES = [(x, x) for x in BOARD_LAYOUTS.iterkeys()]
-
+#LAYOUT_CHOICES = [(x, x) for x in BOARD_LAYOUTS.iterkeys()]
 
 class BoardForm(forms.ModelForm):
-    starting_layout = forms.ChoiceField(choices=LAYOUT_CHOICES)
+    #starting_layout = forms.ChoiceField(choices=LAYOUT_CHOICES)
 
 
     class Meta:

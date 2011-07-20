@@ -9,9 +9,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=8"/>
     {% endblock %}
 	
-	<title>{% block title %}Scout{% endblock %}</title>
+	<title>{% block title %}Kanban{% endblock %}</title>
 	
-    <link rel="stylesheet" href="{{ STATIC_URL }}scout/styles/base.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}kanban/styles/base.css"/>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
 
 	<script>document.documentElement.className += ' js'</script>
@@ -20,7 +20,7 @@
 	{% block body_content %}
 
         {# Include your own masthead by overriding this template #}
-        {% include "scout/branding.html" %}
+        {% include "kanban/branding.html" %}
 
 		<div class="page">
 			<div class="article">
@@ -36,7 +36,6 @@
              is a requirement and must be included in INSTALLED_APPS -->
         {% endcomment %}
         <script type="text/javascript" src="{% admin_media_prefix %}js/jquery.min.js"></script>
-        <script type="text/javascript" src="{{ STATIC_URL }}scout/scripts/base.js" /></script>
 	{% endblock %}
 </body>
 </html>

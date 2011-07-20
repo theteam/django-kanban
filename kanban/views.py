@@ -7,6 +7,7 @@ from kanban.models import Category, Board
 class CategoryCreateView(CreateView):
 
     form_class = CategoryForm
+    template_name = 'kanban/category_create.html'
 
 
 class CategoryListView(ListView):
@@ -17,6 +18,7 @@ class CategoryListView(ListView):
 class BoardCreateView(CreateView):
 
     form_class = BoardForm
+    template_name = 'kanban/board_create.html'
 
     def get_form_kwargs(self):
         kwargs = super(BoardCreateView, self).get_form_kwargs()

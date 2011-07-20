@@ -1,0 +1,270 @@
+html {
+	background: #f3f0eb;
+	/* Fix for IE font-resizing */
+	font-size: 100%;
+    font-family: 'Droid Sans Mono', arial, sans-serif;
+	height: 100%;
+	color: #333;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	
+}
+
+body {
+	font-size: 12px;
+	*font-size: 75%;
+	/* Height and position to make the footer positioning work */
+	min-height: 100%;
+	_height: 100%;
+	position: relative;
+}
+
+ul, ol, li, form, dl, dt, dd {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+a img {
+	border: 0;
+}
+
+a:link, a:visited {
+	color: #005daa;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: underline;
+}
+
+input {
+	vertical-align: middle;
+}
+input[type=radio], input[type=checkbox] {
+	vertical-align: baseline;
+}
+
+.errorlist {
+	color: #f00;
+	font-weight: bold;
+}
+
+textarea {
+	font-size: 1em;
+}
+
+input.text, textarea.text {
+	border: 1px solid #979797;
+	padding: 2px 3px;
+	
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+	-ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+	-o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+	
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+        resize: none;
+}
+
+/* Rounded corners... */
+	div.article,
+    div.footer-inner,
+    ul.project-list li,
+    ul.project-list li img.client-image,
+    .extra-details table {
+		-moz-border-radius: 5px;
+		-o-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		overflow: hidden;
+		position: relative;
+	}
+/* Box shadows */
+	div.article {
+		background: #fff;
+		-moz-box-shadow: 0 1px 9px 0 #bbb;
+		-ms-box-shadow: 0 1px 9px 0 #bbb;
+		-o-box-shadow: 0 1px 9px 0 #bbb;
+		-webkit-box-shadow: 0 1px 9px 0 #bbb;
+		box-shadow: 0 1px 9px 0 #bbb;
+	}
+/*
+	The rest of this stylesheet is for specific pages or areas of pages.
+	Reusable styles should be above this comment
+*/
+/* Page container */
+	.page {
+		width: 660px;
+		overflow: visible;
+		margin: 0 auto;
+	}
+	
+/* Header */
+	.main-header {
+        height: 126px;
+        width: 660px;
+		position: relative;
+        margin: 30px auto 0 auto;
+	}
+	.main-header p {
+		margin: 0 auto;
+		width: 957px;
+		position: relative;
+	}
+/* Tabs */
+	.page {
+		position: relative;
+		margin-top: -55px;
+	}
+
+/* Body content */
+	.article {
+		overflow: hidden;
+		padding: 20px 21px 10px;
+		zoom: 1;
+	}
+
+	.article h1, .login-page h2 {
+		color: #4c721d;
+		margin: 20px 0;
+	}
+
+	.article h2, .article h3, .login-page h3 {
+        font-size: 1.1em;
+		color: #333;
+	}
+	.article p {
+		line-height: 1.3;
+		margin: 1em 0;
+	}
+	.login-page .legal {
+		margin: 19px 0 20px;
+	}
+	.login-page .legal p {
+		padding: 0;
+	}
+
+/* Page specifics */
+
+   ul.project-list {
+       margin: 30px 0;
+   } 
+
+   ul.project-list li {
+       padding: 10px;
+       margin-bottom: 10px;
+       overflow: hidden;
+   }
+
+   .js ul.project-list li {
+       cursor: pointer;     
+   }
+
+   .js ul.project-list li:hover,
+   .js ul.project-list li:active,
+   .js ul.project-list li:focus {
+        background: #f4f4f4;
+        border: 2px solid #5c5c5c;
+   }
+
+   ul.project-list li.up {
+       border: 2px solid #80bd00;
+   }
+
+   ul.project-list li.down {
+       border: 2px solid #ef3e42;
+   }
+
+   ul.project-list .project {
+       height: 50px;
+   }
+
+   ul.project-list li img.client-image {
+       width: 40px;
+       height: 40px;
+       float: left;
+       border: 1px solid #efefef;
+       padding: 4px;
+       margin: 0 10px 0 0;
+    }
+
+   ul.project-list li h3 {
+       float: left;
+       width: 400px;
+   }
+
+   ul.project-list li div.project-status {
+       height: 50px;
+       width: 50px;
+       float: right;
+       -moz-border-radius: 25px;
+       -o-border-radius: 25px;
+       -webkit-border-radius: 25px;
+       border-radius: 25px;
+       overflow: hidden;
+       position: relative;
+   }
+
+   ul.project-list li.up div.project-status {
+		background: transparent;
+		background: -webkit-gradient(linear, left top, left bottom, from(#deeebc), to(#80bd00));
+		background: -moz-linear-gradient(-90deg, #deeebc, #80bd00);
+		background: linear-gradient(-90deg, #deeebc, #80bd00);
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#deeebc, endColorstr=#80bd00);
+   }
+
+   ul.project-list li.down div.project-status {
+		background: transparent;
+		background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ef3242));
+		background: -moz-linear-gradient(-90deg, #fff, #ef3242);
+		background: linear-gradient(-90deg, #fff, #ef3242);
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ffffff, endColorstr=#80bd00);
+   }
+
+   .js ul.project-list li.up .extra-details {
+       display: none;
+   }
+
+   ul.project-list h4 {
+    font-weight: normal;
+   }
+
+   table.tests {
+       border: 1px solid #efefef;
+       margin: 0 0 20px 0;
+   }
+
+   table.tests col.url, 
+   table.tests col.date {
+   }
+
+   table.tests tr th,
+   table.tests tr td {
+       padding: 6px;
+   }
+
+   table.tests tr.up {
+       background: #f8ffea;
+   }
+
+   table.tests tr.down {
+       background:  #fff2f2;
+   }
+
+   table.tests tr th {
+       text-align: left;
+   }
+
+   table.tests tr td {
+       border:;
+   }
