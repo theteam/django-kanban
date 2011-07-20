@@ -64,7 +64,7 @@ class Board(TimestampModel, ActiveModel):
     creator = models.ForeignKey('auth.User', verbose_name=_('creator'),
                                 related_name='boards')
     category = models.ForeignKey('kanban.Category', verbose_name=_('category'),
-                                related_name='boards')
+                                related_name='boards', null=True, blank=True)
     title = models.CharField(_('title'), max_length=100, unique=True)
     slug = models.SlugField(_('slug'), max_length=100, unique=True, 
                             editable=False)
@@ -94,7 +94,7 @@ class State(models.Model):
     """
     #TODO: editing permissions, needs groups and users.
     board = models.ForeignKey('kanban.Board', verbose_name=_('board'), 
-                              related_name='columns')
+                              related_name='states')
     title = models.CharField(_('title'), max_length=100, unique=True)
     slug = models.SlugField(_('slug'), max_length=100, unique=True)
     tagline = models.CharField(_('tagline'), max_length=255, blank=True)

@@ -15,7 +15,7 @@ urlpatterns = patterns('kanban.views',
         # Board URLs
         url(r'^board/create/', BoardCreateView.as_view(),
             name="kanban_board_create"),
-        url(r'^(?P<slug>[\w-]+)', BoardDetailView.as_view(),
+        url(r'^(?P<slug>[\w-]+)/', BoardDetailView.as_view(),
             name="kanban_board_detail")
 
 

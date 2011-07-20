@@ -1,1 +1,14 @@
 {% extends "kanban/base.html" %}
+
+{% block content %}
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+
+        {{ form.as_ul }}
+        
+        <button type="submit">Create board!</button>
+
+    </form>
+{% endblock %}

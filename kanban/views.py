@@ -1,6 +1,6 @@
 from django.views.generic import CreateView, DetailView, ListView
 
-from kanban.forms import BoardForm, CategoryForm
+from kanban.forms import BoardCreateForm, CategoryForm
 from kanban.models import Category, Board
 
 
@@ -17,7 +17,7 @@ class CategoryListView(ListView):
 
 class BoardCreateView(CreateView):
 
-    form_class = BoardForm
+    form_class = BoardCreateForm
     template_name = 'kanban/board_create.html'
 
     def get_form_kwargs(self):
