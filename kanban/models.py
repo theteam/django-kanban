@@ -37,6 +37,7 @@ class Category(models.Model):
     title = models.CharField(_('title'), max_length=100, unique=True)
     slug = models.SlugField(_('slug'), max_length=100, unique=True, 
                             editable=False)
+    tagline = models.CharField(_('tagline'), max_length=255, blank=True)
 
     class Meta:
         ordering = ['title']
@@ -122,7 +123,7 @@ class Card(models.Model):
     description = models.TextField(_('description'), blank=True)
 
     class Meta:
-        order = ['order']
+        ordering = ['order']
 
     def __unicode__(self):
         return self.title

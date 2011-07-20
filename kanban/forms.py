@@ -1,6 +1,6 @@
 from django import forms
 
-from kanban.models import Board
+from kanban.models import Board, Category
 from kanban.settings import BOARD_LAYOUTS
 
 
@@ -19,3 +19,10 @@ class BoardForm(forms.ModelForm):
     def __init__(self, user, *args, **kwargs):
         self.user = user
         super(BoardForm, self).__init__(*args, **kwargs)
+
+
+class CategoryForm(forms.ModelForm):
+
+    class Meta:
+        model = Category
+        fields = ['title', 'tagline']
