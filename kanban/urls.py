@@ -18,5 +18,4 @@ urlpatterns = patterns('kanban.views',
         url(r'^(?P<slug>[\w-]+)/', BoardDetailView.as_view(),
             name="kanban_board_detail")
 
-
 )

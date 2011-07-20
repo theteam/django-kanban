@@ -5,9 +5,16 @@
     <h2>{{ object.title }}</h2>
     <h3>{{ object.tagline }}</h3>
 
-    <ol>
+
     {% for state in object.states.all %}
-        <li>{{ state }}</li>
+        <div class="state" id="state-{{ state.pk }}">
+            <h3>{{ state.title }}</h3> 
+            <ul>
+                {% for card in state.cards.all %}
+                    <li>{{ card.summary }}</li>
+                {% endfor %}
+            </ul>
+        </div>
     {% endfor %}
-    </ol>
+
 {% endblock %}

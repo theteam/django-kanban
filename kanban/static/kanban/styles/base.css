@@ -78,10 +78,7 @@ input.text, textarea.text {
 
 /* Rounded corners... */
 	div.article,
-    div.footer-inner,
-    ul.project-list li,
-    ul.project-list li img.client-image,
-    .extra-details table {
+    div.footer-inner {
 		-moz-border-radius: 5px;
 		-o-border-radius: 5px;
 		-webkit-border-radius: 5px;
@@ -124,7 +121,6 @@ input.text, textarea.text {
 /* Tabs */
 	.page {
 		position: relative;
-		margin-top: -55px;
 	}
 
 /* Body content */
@@ -155,116 +151,26 @@ input.text, textarea.text {
 	}
 
 /* Page specifics */
-
-   ul.project-list {
-       margin: 30px 0;
-   } 
-
-   ul.project-list li {
-       padding: 10px;
-       margin-bottom: 10px;
-       overflow: hidden;
-   }
-
-   .js ul.project-list li {
-       cursor: pointer;     
-   }
-
-   .js ul.project-list li:hover,
-   .js ul.project-list li:active,
-   .js ul.project-list li:focus {
-        background: #f4f4f4;
-        border: 2px solid #5c5c5c;
-   }
-
-   ul.project-list li.up {
-       border: 2px solid #80bd00;
-   }
-
-   ul.project-list li.down {
-       border: 2px solid #ef3e42;
-   }
-
-   ul.project-list .project {
-       height: 50px;
-   }
-
-   ul.project-list li img.client-image {
-       width: 40px;
-       height: 40px;
-       float: left;
-       border: 1px solid #efefef;
-       padding: 4px;
-       margin: 0 10px 0 0;
+    
+    div.state {
+        width: 100px;
+        float: left;
+        overflow: hidden;
+    
     }
 
-   ul.project-list li h3 {
-       float: left;
-       width: 400px;
-   }
+    div.state h3 {
+        text-align: center;
+    }
 
-   ul.project-list li div.project-status {
-       height: 50px;
-       width: 50px;
-       float: right;
-       -moz-border-radius: 25px;
-       -o-border-radius: 25px;
-       -webkit-border-radius: 25px;
-       border-radius: 25px;
-       overflow: hidden;
-       position: relative;
-   }
+    div.state ul {
+        border-left: 1px solid #5c5c5c;
+        border-right: 1px solid #5c5c5c;
+    }
 
-   ul.project-list li.up div.project-status {
-		background: transparent;
-		background: -webkit-gradient(linear, left top, left bottom, from(#deeebc), to(#80bd00));
-		background: -moz-linear-gradient(-90deg, #deeebc, #80bd00);
-		background: linear-gradient(-90deg, #deeebc, #80bd00);
-		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#deeebc, endColorstr=#80bd00);
-   }
-
-   ul.project-list li.down div.project-status {
-		background: transparent;
-		background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ef3242));
-		background: -moz-linear-gradient(-90deg, #fff, #ef3242);
-		background: linear-gradient(-90deg, #fff, #ef3242);
-		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#ffffff, endColorstr=#80bd00);
-   }
-
-   .js ul.project-list li.up .extra-details {
-       display: none;
-   }
-
-   ul.project-list h4 {
-    font-weight: normal;
-   }
-
-   table.tests {
-       border: 1px solid #efefef;
-       margin: 0 0 20px 0;
-   }
-
-   table.tests col.url, 
-   table.tests col.date {
-   }
-
-   table.tests tr th,
-   table.tests tr td {
-       padding: 6px;
-   }
-
-   table.tests tr.up {
-       background: #f8ffea;
-   }
-
-   table.tests tr.down {
-       background:  #fff2f2;
-   }
-
-   table.tests tr th {
-       text-align: left;
-   }
-
-   table.tests tr td {
-       border:;
-   }
+    div.state ul li {
+        background: white;
+        height: 100px;
+        width: 80px;
+        margin: 1em;
+    }
