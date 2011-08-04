@@ -2,19 +2,21 @@
 
 {% block content %}
 
-    <h2>{{ object.title }}</h2>
-    <h3>{{ object.tagline }}</h3>
+    <div class="{{ board.style }}">
+        <h2>{{ object.title }}</h2>
+        <h3>{{ object.tagline }}</h3>
 
 
-    {% for state in object.states.all %}
-        <div class="state" id="state-{{ state.pk }}">
-            <h3>{{ state.title }}</h3> 
-            <ul>
-                {% for card in state.cards.all %}
-                    <li>{{ card.summary }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endfor %}
+        {% for state in object.states.all %}
+            <div class="state" id="state-{{ state.pk }}">
+                <h3>{{ state.title }}</h3> 
+                <ul>
+                    {% for card in state.cards.all %}
+                        <li>{{ card.summary }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
 
 {% endblock %}

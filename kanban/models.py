@@ -2,6 +2,8 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
 
+from kanban.settings import BOARD_STYLES
+
 ###
 # Abstract Base models.
 ###
@@ -70,6 +72,7 @@ class Board(TimestampModel, ActiveModel):
                             editable=False)
     tagline = models.CharField(_('tagline'), max_length=255, blank=True)
     description = models.TextField(_('description'), blank=True)
+    style = models.CharField(choices=BOARD_STYLES)
 
     class Meta:
         ordering = ['-created']

@@ -15,7 +15,7 @@ setup(
     url='https://github.com/theteam/django-kanban',
     packages=find_packages(exclude=['tests']),
     include_package_data=True,
-    install_requires=['django-rules',
+    install_requires=['django-guardian',
                       'gevent', 
                       'gevent-websocket', 
                       'gevent-socketio'],

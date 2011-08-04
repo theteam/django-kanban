@@ -12,14 +12,15 @@ class BoardCreateForm(forms.ModelForm):
 
     class Meta:
         model = Board
-        fields = ['title', 'tagline']
+        fields = ['title', 'tagline', 'style']
 
     def __init__(self, user, *args, **kwargs):
         self.user = user
         super(BoardCreateForm, self).__init__(*args, **kwargs)
 
     def save(self, commit=True, *args, **kwargs):
-        board = super(BoardCreateForm, self).save(commit=False, *args, **kwargs)
+        board = super(BoardCreateForm, self).save(commit=False, *args, 
+                                                  **kwargs)
         board.creator = self.user
         if commit:
             board.save()
