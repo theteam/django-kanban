@@ -72,7 +72,7 @@ class Board(TimestampModel, ActiveModel):
                             editable=False)
     tagline = models.CharField(_('tagline'), max_length=255, blank=True)
     description = models.TextField(_('description'), blank=True)
-    style = models.CharField(choices=BOARD_STYLES)
+    style = models.CharField(choices=BOARD_STYLES, max_length=30)
 
     class Meta:
         ordering = ['-created']

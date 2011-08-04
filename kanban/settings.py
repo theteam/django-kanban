@@ -22,4 +22,4 @@ BOARD_LAYOUTS = getattr(settings, 'KANBAN_BOARD_LAYOUTS',
                         DEFAULT_BOARD_LAYOUTS)
 
 BOARD_STYLES = getattr(settings, 'KANBAN_BOARD_STYLES', 
-                       DEFAULT_BOARD_LAYOUTS)
+                       DEFAULT_BOARD_STYLES)
